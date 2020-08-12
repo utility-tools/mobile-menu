@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <header>
+        <span class="icon hamburger" role="button" id="icon-hamburger"></span>
+        <span class="icon browse-mode" role="button" id="icon-browse-mode"></span>
+    </header>
+    <nav class="app-menu" id="app-menu">
+        <div class="app-menu__logo-bar">
+            <div class="row">
+                <div class="col-10">
+                    <a href="#" class="app-menu__logo">
+                        <img src="/assets/microsoft-logo.png" alt="City Logo"  class="app-menu__logo-img">
+                    </a>
+                </div>
+                <div class="col-2">
+                    <span role="button" class="app-menu__close" id="app-menu__close">&times;</span>
+                </div>
+            </div>
+        </div>
+
+        <section class="app-menu__curated-options" id="app-menu__curated-options">
+            <a href="#" class="app-menu__curated-link">Curated option1</a>
+            <a href="#" class="app-menu__curated-link">Curated option2</a>
+            <a href="#" class="app-menu__curated-link">Curated option3</a>
+            <a href="#" class="app-menu__curated-link">Curated option4</a>
+            <a href="#" class="app-menu__curated-link">Curated option5</a>
+        </section>
+
+        <section class="app-menu__nav">
+            <div class="app-menu__reset app-menu__space-x d-none" id="app-menu__reset" role="button"><span class="app-menu__reset-arrow">&lsaquo;</span> Main Menu</div>
+            <div class="app-menu__breadcrumb" id="app-menu__breadcrumb"></div>
+            <div class="app-menu__landing-page app-menu__space-x" id="app-menu__landing-page"></div>
+
+            <div class="app-nav app-menu__space-x" id="app-nav" data-current="m011">
+                <div class="app-nav__node app-nav__node--active" id="m0">
+                    <a href="#" class="app-nav__node-child" data-target="m01">Child 1 - level 1</a>
+                    <a href="#" class="app-nav__node-child" data-target="m02">Child 2 - level 1</a>
+                    <a href="#" class="app-nav__node-child" data-target="m03">Child 3 - level 1</a>
+                    <a href="#" class="app-nav__node-child" data-target="m04">Child 4 - level 1</a>
+                    <a href="#" class="app-nav__node-child" data-target="m05">Child 5 - level 1</a>
+                    <a href="#" class="app-nav__node-child" data-target="m06">Child 6 - level 1</a>
+                    <a href="#" class="app-nav__node-child" data-target="m07">Child 7 - level 1</a>
+                    <a href="#" class="app-nav__node-child" data-target="m08">Child 8 - level 1</a>
+                    <a href="#" class="app-nav__node-child" data-target="m09">Child 9 - level 1</a>
+                    <a href="#" class="app-nav__node-child" data-target="m010">Child 10 - level 1</a>
+                </div>
+                <div class="app-nav__node" id="m01">
+                    <a href="#" class="app-nav__node-child" data-target="m011">Child 1.1 - level 2</a>
+                    <a href="#" class="app-nav__node-child" data-target="m012">Child 1.2 - level 2</a>
+                    <a href="#" class="app-nav__node-child" data-target="m013">Child 1.3 - level 2</a>
+                    <a href="#" class="app-nav__node-child" data-target="m014">Child 1.4 - level 2</a>
+                    <a href="#" class="app-nav__node-child" data-target="m015">Child 1.5 - level 2</a>
+                    <a href="#" class="app-nav__node-child" data-target="m016">Child 1.6 - level 2</a>
+                    <a href="#" class="app-nav__node-child" data-target="m017">Child 1.7 - level 2</a>
+                    <a href="#" class="app-nav__node-child" data-target="m018">Child 1.8 - level 2</a>
+                    <a href="#" class="app-nav__node-child" data-target="m019">Child 1.9 - level 2</a>
+                    <a href="#" class="app-nav__node-child" data-target="m0110">Child 1.10 - level 2</a>
+                </div>
+                <div class="app-nav__node" id="m011">
+                    <a href="#" class="app-nav__node-child" data-target="m0111">Child 1.1.1 - level 3</a>
+                    <a href="#" class="app-nav__node-child" data-target="m02">Child 1.1.2 - level 3</a>
+                    <a href="#" class="app-nav__node-child">Child 1.13 - level 3</a>
+                    <a href="#" class="app-nav__node-child">Child 1.14 - level 3</a>
+                    <a href="#" class="app-nav__node-child">Child 1.15 - level 3</a>
+                    <a href="#" class="app-nav__node-child">Child 1.16 - level 3</a>
+                    <a href="#" class="app-nav__node-child">Child 1.17 - level 3</a>
+                    <a href="#" class="app-nav__node-child">Child 1.18 - level 3</a>
+                    <a href="#" class="app-nav__node-child">Child 1.19 - level 3</a>
+                    <a href="#" class="app-nav__node-child">Child 1.110 - level 3</a>
+                </div>
+                <div class="app-nav__node" id="m0111">
+                    <a href="#" class="app-nav__node-child">Child 1.1.1.1 - level 4</a>
+                    <a href="#" class="app-nav__node-child">Child 1.1.1.2 - level 4</a>
+                    <a href="#" class="app-nav__node-child">Child 1.1.13 - level 4</a>
+                    <a href="#" class="app-nav__node-child">Child 1.1.14 - level 4</a>
+                    <a href="#" class="app-nav__node-child">Child 1.1.15 - level 4</a>
+                    <a href="#" class="app-nav__node-child">Child 1.1.16 - level 4</a>
+                    <a href="#" class="app-nav__node-child">Child 1.1.17 - level 4</a>
+                    <a href="#" class="app-nav__node-child">Child 1.1.18 - level 4</a>
+                    <a href="#" class="app-nav__node-child">Child 1.1.19 - level 4</a>
+                    <a href="#" class="app-nav__node-child">Child 1.1.110 - level 4</a>
+                </div>
+                <div class="app-nav__node" id="m02">
+                    <a href="#" class="app-nav__node-child" data-target="m021">Child 2.1 - level 2</a>
+                    <a href="#" class="app-nav__node-child" data-target="m022">Child 2.2 - level 2</a>
+                    <a href="#" class="app-nav__node-child">Child 2.3 - level 2</a>
+                    <a href="#" class="app-nav__node-child" data-target="m024">Child 2.4 - level 2</a>
+                    <a href="#" class="app-nav__node-child">Child 2.5 - level 2</a>
+                    <a href="#" class="app-nav__node-child">Child 2.6 - level 2</a>
+                    <a href="#" class="app-nav__node-child">Child 2.8 - level 2</a>
+                    <a href="#" class="app-nav__node-child">Child 2.7 - level 2</a>
+                    <a href="#" class="app-nav__node-child">Child 2.9 - level 2</a>
+                    <a href="#" class="app-nav__node-child">Child 2.10 - level 2</a>
+                </div>
+            </div>
+        </section>
+    </nav>
+
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+$color-gray: #808080;
+$color-background: #fafafa;
+$color-white: #FFF;
+$color-breadcrumb: #F2F2F2;
+$color-breadcrumb-alt: #E6E6E6;
+
+
+[role=button] {
+    cursor: pointer;
+}
+
+header {
+    background: #333;
+    box-sizing: border-box;
+    color: $color-white;
+    font-size: 2rem;
+    height: 90px;
+    
+
+    .icon {
+        display: inline-block;
+        line-height: 90px;
+        padding: 0 1rem;
+    }
+
+    .hamburger {
+        &.active {
+            background-color: $color-gray;
+            opacity: 1;
+        }
+
+        &.deactive {
+            color: $color-gray;
+        }
+
+        &:after {
+            content: '\2630';
+        }
+    }
+    
+    .browse-mode{
+        opacity: 0.2;
+
+        &.active {
+            background-color: $color-gray;
+            opacity: 1;
+        }
+
+        &:after {
+            content: '\1F4C1';
+        }
+    }
+}
+
+.app-menu {
+    background-color: $color-background;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 90px;
+    left: -500px;
+    height: calc(100% - 90px);
+    overflow: auto;
+    transition: 0.2s all ease-in-out;
+    width: 480px;
+
+    &--on {
+        left: 0;
+    }
+
+    a {
+        color: $color-gray;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+    &__logo {
+        display: inline-block;
+        margin: 36px 60px;
+
+        &-bar {
+            background-color: $color-gray;
+            color: $color-white;
+        }
+
+        &-img {
+            max-height: 80px;
+            max-width: 300px;
+        }
+    }
+
+    &__close {
+        display: block;
+        font-size: 36px;
+        margin-top: 15px;
+    }
+
+    &__curated {
+        
+        &-options {
+            border-bottom: 2px solid $color-gray;     
+            margin: 20px 0;
+            padding: 0;
+        }
+
+        &-link {
+            display: block;
+            margin: 20px 0;
+        }
+    }
+
+    &__space-x {
+        margin-left: 60px;
+        margin-right: 60px;
+    }
+
+    &__breadcrumb-item {
+        background-color: $color-breadcrumb;
+        color: $color-gray;
+        display: block;
+        font-size: .75rem;
+        font-style: italic;
+        padding: 10px 60px;
+        position: relative;
+
+        &:after {
+            border-top: 10px solid $color-breadcrumb;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            content: '';
+            position: absolute;
+            right: 60px;
+            bottom: -10px;
+            z-index: 1;
+        }
+
+        &:nth-child(odd) {
+            background-color: $color-breadcrumb-alt;
+
+            &:after {
+                border-top-color: $color-breadcrumb-alt;
+            }
+        }
+
+        &:last-child {
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__reset {
+        font-size: 2rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+
+        &-arrow {
+            color: $color-gray;
+            position: relative;
+            top: -2px;
+        }
+    }
+
+    &__landing-page {
+        &-link {
+            display: block;
+            margin: 3rem 0 0;
+            position: relative;
+
+            &:before {
+                background-color: $color-gray;
+                border-radius: 50%;
+                position: absolute;
+                top: 3px;
+                right: 3px;
+                content: '';
+                display: block;
+                height: 8px;
+                width: 8px;
+            }
+
+            &:after {
+                border: 1px solid $color-gray;
+                border-radius: 50%;
+                position: absolute;
+                top: 0;
+                right: 0;
+                content: '';
+                display: block;
+                height: 14px;
+                width: 14px;
+            }
+        }
+    }
+    
+}
+
+.app-nav {
+    display: flex;
+
+    &__node {
+        flex: 0;
+        overflow: hidden;
+        transition: 0.33s all ease-in-out;
+
+        &--active {
+            flex: 1;
+        }
+    }
+
+    &__node-child {
+        display: block;
+        margin: 1rem 0;
+        position: relative;
+        width: 100%;
+
+        &[data-target]:after {
+            content: '\203A';
+            font-size: 20px;
+            position: absolute;
+            top: -2px;
+            right: 0;
+        }
+    }
+}
