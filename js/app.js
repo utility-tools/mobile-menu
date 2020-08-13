@@ -1,7 +1,5 @@
 $(function() {
 
-    // @todo: close menu clicking outside
-
     // menu variables
     const $menuContainer = $('#app-menu');
     const $hamburger = $('#icon-hamburger');
