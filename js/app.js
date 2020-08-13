@@ -14,6 +14,7 @@ $(function() {
     const hiddenClass = 'd-none';
     const activeClass = 'app-nav__node--active';
     const breadcrumbItemClass = 'app-menu__breadcrumb-item';
+    const breadcrumHomeText = 'My App Home';
 
     /**
      * @function
@@ -197,7 +198,11 @@ $(function() {
         const menuElm = $menuContainer.get(0);
         const isClickedOutside = !menuElm.contains(eventElm);
 
-        if(isClickedOutside && !$(eventElm).is($hamburger) && !$(eventElm).is($browseMode)) {
+        if(isClickedOutside 
+            && !$(eventElm).is($hamburger) 
+            && !$(eventElm).is($browseMode)
+            && !$(eventElm).is('#breadcrum-home')) 
+        {
             onClose();
         }
     }
@@ -216,7 +221,7 @@ $(function() {
 
         // add default/home item for first time
         if($breadcrumb.is(':empty')) {
-            $breadcrumb.append('<span class="' + breadcrumbItemClass + '" role="button">Nexus</span>');
+            $breadcrumb.append('<span class="' + breadcrumbItemClass + '" id="breadcrum-home" role="button">' + breadcrumHomeText + '</span>');
         }
 
         // add breadcrumb item
@@ -268,7 +273,7 @@ $(function() {
         addBreadcrumbNodes(lastLevelTargetID);
 
         // add first default node after recursion
-        $breadcrumb.prepend('<span class="' + breadcrumbItemClass + '" role="button">Nexus</span>');
+        $breadcrumb.prepend('<span class="' + breadcrumbItemClass + '" id="breadcrum-home" role="button">' + breadcrumHomeText + '</span>');
     }
 
     /**
