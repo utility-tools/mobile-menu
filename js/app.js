@@ -78,54 +78,6 @@ $(function() {
 
     /**
      * @function
-     * @desc builds breadcrumb in reverse order - from last to first (as last ID is known)
-     * @param {String} lastLevelTargetID last level target ID
-     */
-    function buildBreadcrumbForBrowseMode(lastLevelTargetID) {
-
-        // empty breadcrumb to reset it
-        $breadcrumb.empty();
-        
-        // init adding breadcrum from last
-        addNode(lastLevelTargetID);
-
-        /**
-         * @function
-         * @desc a utility function to be used recursively for adding breadcrumb nodes
-         * @param {String} nodeID 
-         */
-        function addNode(nodeID) {
-            const $target = $menu.find('.app-nav__node-child[data-target=' + nodeID + ']');
-
-            // if no target found, do nothing
-            if(!$target.length) {
-                return;
-            }
-
-            // build and add a node
-            const $item = $('<span role="button"></span>');
-            const text = $target.text();
-
-            $item
-                .text(text)
-                .attr('data-target', nodeID)
-                .addClass(breadcrumbItemClass);
-
-            $breadcrumb.prepend($item);
-
-            // repeat it for previous node if has a parent
-            if($target.parent().is('.app-nav__node')) {
-                addNode($target.parent().attr('id'));
-            }
-        }
-
-        // add first default node after recursion
-        $breadcrumb.prepend('<span class="' + breadcrumbItemClass + '" role="button">Nexus</span>');
-        
-    }
-
-    /**
-     * @function
      * @desc handles event for close button
      */
     function onClose() {
@@ -237,6 +189,21 @@ $(function() {
         scrollTop();
     }
 
+    /**
+     * @function
+     * @desc handles click event to close menu from outside 
+     * @param {Event} evt event object
+     */
+    function onCloseFromOutside(evt) {
+        const eventElm = evt.target;
+        const menuElm = $menuContainer.get(0);
+        const isClickedOutside = !menuElm.contains(eventElm);
+
+        if(isClickedOutside && !$(eventElm).is($hamburger) && !$(eventElm).is($browseMode)) {
+            onClose();
+        }
+    }
+
      /**
       * @function
       * @desc utility method to update breadcrum
@@ -291,6 +258,53 @@ $(function() {
 
     /**
      * @function
+     * @desc builds breadcrumb in reverse order - from last to first (as last ID is known)
+     * @param {String} lastLevelTargetID last level target ID
+     */
+    function buildBreadcrumbForBrowseMode(lastLevelTargetID) {
+
+        // empty breadcrumb to reset it
+        $breadcrumb.empty();
+        
+        // init adding breadcrum from last to first
+        addBreadcrumbNodes(lastLevelTargetID);
+
+        // add first default node after recursion
+        $breadcrumb.prepend('<span class="' + breadcrumbItemClass + '" role="button">Nexus</span>');
+    }
+
+    /**
+     * @function
+     * @desc a utility function to be used recursively for adding breadcrumb nodes from last to first
+     * @param {String} lastLevelTargetID 
+     */
+    function addBreadcrumbNodes(lastLevelTargetID) {
+        const $target = $menu.find('.app-nav__node-child[data-target=' + lastLevelTargetID + ']');
+
+        // if no target found, do nothing
+        if(!$target.length) {
+            return;
+        }
+
+        // build and add a node
+        const $item = $('<span role="button"></span>');
+        const text = $target.text();
+
+        $item
+            .text(text)
+            .attr('data-target', lastLevelTargetID)
+            .addClass(breadcrumbItemClass);
+
+        $breadcrumb.prepend($item);
+
+        // repeat it for previous node if has a parent
+        if($target.parent().is('.app-nav__node')) {
+            addBreadcrumbNodes($target.parent().attr('id'));
+        }
+    }
+
+    /**
+     * @function
      * @desc initialized the menu, sets up basic stuff
      */
     function init() {
@@ -307,4 +321,5 @@ $(function() {
     $menu.find('.app-nav__node-child[data-target]').click(onMenuItemClick);
     $resetButton.click(onReset);
     $breadcrumb.on('click', '.' + breadcrumbItemClass, onBreadcrumbClick);
+    $(window).on('click.closemenu', onCloseFromOutside);
 });
