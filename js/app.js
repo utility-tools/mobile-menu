@@ -257,7 +257,7 @@ $(function() {
             left: 0
         };
 
-        document.querySelector('.app-menu').scrollTo(options);
+        $menuContainer.get(0).scrollTo(options);
     }
 
     /**
