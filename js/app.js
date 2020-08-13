@@ -198,11 +198,12 @@ $(function() {
         const menuElm = $menuContainer.get(0);
         const isClickedOutside = !menuElm.contains(eventElm);
 
-        if(isClickedOutside 
+        if (
+            isClickedOutside 
             && !$(eventElm).is($hamburger) 
             && !$(eventElm).is($browseMode)
-            && !$(eventElm).is('#breadcrum-home')) 
-        {
+            && !$(eventElm).is('#breadcrum-home')
+        ) {
             onClose();
         }
     }
