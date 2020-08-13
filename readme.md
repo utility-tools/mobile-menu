@@ -11,3 +11,7 @@ mobile menu with various options:
 
 ## Demo
 URL: https://utility-tools.github.io/mobile-menu/
+
+## Dependencies
+* jQuery (DOM manipulation and event binding)
+* Bootstrap (for grid)
