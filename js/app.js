@@ -57,7 +57,16 @@ $(function() {
         const $currentMenu = $menu.find('#' + targetID);
         const $targetAnchor = $menu.find('.app-nav__node-child[data-target=' + targetID + ']');
 
+        // do nothing, if no target menu is found
         if(!$currentMenu.length) {
+            return;
+        }
+
+        // open base if home
+        if($currentMenu.is(':first-child')) {
+            $hamburger.trigger('click');
+            $hamburger.removeClass('active').addClass('deactive');
+            $browseMode.addClass('active');
             return;
         }
 
